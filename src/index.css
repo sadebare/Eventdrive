@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.e-dlg-center-center, .e-quick-popup-wrapper.e-device{
+  z-index: 1000000 !important;
+}
+::-webkit-scrollbar {
+  width: 1px;
+}
+/* ::-webkit-scrollbar-thumb {
+  background-color: green;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+} */
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-7xl px-7;
+  }
+
+  .page-title {
+    @apply capitalize text-3xl font-medium;
+  }
+
+  .page-grid {
+    @apply grid md:grid-cols-3 md:gap-4;
+  }
+
+  .button-style {
+    @apply py-2 px-4 rounded-md font-bold;
+  }
+
+
+  /* CUSTOM DOT STYLING */
+  .custom-dots {
+    @apply flex justify-center;
+  }
+  
+  .custom-dots li {
+    @apply mx-2;
+  }
+  
+  .custom-dots li button {
+    @apply w-2 h-2 p-0 rounded-full bg-gray-300 hover:bg-primary transition duration-300;
+  }
+  
+  .custom-dots li.slick-active button {
+    @apply bg-primary w-4 h-4 p-1;
+  }
+  
+  .custom-dots li button:before {
+    content: none; /* Remove the default content */
+  }  
+}
