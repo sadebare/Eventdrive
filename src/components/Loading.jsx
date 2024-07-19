@@ -1,10 +1,19 @@
+import { ThreeCircles } from "react-loader-spinner";
+
 const Loading = () => {
   return (
-    // <div className="flex items-center justify-center">
-    <div>
-      <h2 className="loading loading-bars loading-lg text-primary"></h2>
+    <div className="flex justify-center items-center h-screen">
+      <ThreeCircles
+        visible={true}
+        height="100"
+        width="100"
+        color="#EAB308"
+        ariaLabel="three-circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

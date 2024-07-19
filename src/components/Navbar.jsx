@@ -24,9 +24,10 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <div className="bg-base-100 py-6">
+    <div className="bg-base-100">
       {/* Desktop */}
-      <div className="align-element hidden lg:block">
+      <Link to='/vendor-register' className="bg-gray-100 text-yellow-500 text-center py-2 block md:font-semibold">List Your Business</Link>
+      <div className="align-element py-6 hidden lg:block">
         <div className="flex items-center justify-between">
           <LogoHeader />
           <NavLinks />
@@ -38,21 +39,21 @@ const Navbar = () => {
                   <img
                     src="/avatar.svg"
                     alt="user"
-                    className="bg-primary rounded-full p-3"
+                    className="bg-yellow-500 rounded-full p-3"
                   />
                 </div>
                 <div>
                   <img
                     src="/notification.svg"
                     alt="notification"
-                    className="border border-black rounded-full p-3"
+                    className="hover:bg-gray-200 border border-black rounded-full p-3"
                   />
                 </div>
                 <div>
                   <img
                     src="/cart.svg"
                     alt="cart"
-                    className="border border-black rounded-full p-3"
+                    className="hover:bg-gray-200 border border-black rounded-full p-3"
                   />
                 </div>
               </>
@@ -60,11 +61,11 @@ const Navbar = () => {
               <>
                 <Link
                   to="/register"
-                  className="bg-primary md:px-3 py-1 rounded-md cursor-pointer"
+                  className="bg-yellow-500 hover:bg-yellow-600 md:px-3 py-1 rounded-md cursor-pointer"
                 >
                   Sign Up
                 </Link>
-                <Link to="/login" className="shadow px-3 py-1 cursor-pointer">
+                <Link to="/login" className="hover:bg-base-200 rounded-md border px-3 py-1 cursor-pointer">
                   Log in
                 </Link>
               </>
@@ -74,7 +75,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile */}
-      <div className="align-element lg:hidden">
+      <div className="align-element lg:hidden py-6">
         <div className="flex justify-between">
           <LogoHeader />
           <div className="flex gap-5 items-center">
@@ -82,25 +83,25 @@ const Navbar = () => {
               <img
                 src="/avatar.svg"
                 alt="user"
-                className="bg-primary rounded-full p-3"
+                className="bg-yellow-500 rounded-full p-3"
               />
             )}
-            <span className="text-primary" onClick={() => setIsOpen(!isOpen)}>
+            <span className="text-yellow-500" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <FaTimes size={30} /> : <VscThreeBars size={30} />}
             </span>
           </div>
           {isOpen && (
-            <div className="fixed top-20 left-0 w-full h-fit space-y-3 align-element rounded-b-md py-10 bg-white overflow-hidden">
+            <div className="fixed top-28 left-0 w-full h-fit space-y-3 align-element rounded-b-md py-10 bg-white overflow-hidden">
               <div className="pl-4">
                 {/* user name here */}
                 <div>{""}</div>
-                {user && (
+                {!user && (
                   <div className="flex items-center gap-5 pb-8">
                     <div>
                       <img
                         src="/avatar.svg"
                         alt="user"
-                        className="bg-primary rounded-full p-3"
+                        className="bg-yellow-500 rounded-full p-3"
                       />
                     </div>
                     <div>
@@ -125,7 +126,7 @@ const Navbar = () => {
                 <div className="grid gap-4 pl-3">
                   <Link
                     to="/register"
-                    className="bg-primary w-1/3 py-3 text-center button-style"
+                    className="bg-yellow-500 w-1/3 py-3 text-center button-style"
                   >
                     Sign Up
                   </Link>

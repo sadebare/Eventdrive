@@ -6,8 +6,8 @@ import instagram from '/instagram.svg';
 
 const Footer = () => {
   return (
-    <div className="bg-black">
-      <div className="align-element flex flex-col md:grid md:grid-cols-7 gap-5 text-white p-10">
+    <div className="bg-gray-50 md:bg-black">
+      <div className="align-element flex flex-col md:grid md:grid-cols-7 gap-5 text-black md:text-white p-10">
         <div className="flex flex-col items-center md:items-start gap-3 col-span-2">
           <div className="font-bold text-3xl flex gap-3">
             <img src={logo} alt="logo" />
@@ -21,7 +21,7 @@ const Footer = () => {
             <img src={x} alt="x link" className="cursor-pointer w-14 h-14" />
             <img src={instagram} alt="instagram link" className="cursor-pointer w-14 h-14" />
           </div>
-          <div className="grid gap-1">
+          <div className="grid gap-1 text-center md:text-left">
             <div>Plot 6, Amadu Bello Way, Wuse, Zone 4, Abuja</div>
             <div>081123456789, 070123456789</div>
           </div>
@@ -29,21 +29,21 @@ const Footer = () => {
 
         <div className="flex gap-5 md:col-span-3">
           <div className="grid gap-1">
-            <div className="text-primary font-medium text-lg">Company</div>
+            <div className="text-yellow-500 font-medium text-lg">Company</div>
             <div>About Us</div>
             <div>Our Blog</div>
             <div>How It Works</div>
           </div>
           
           <div className="grid gap-1">
-            <div className="text-primary font-medium text-lg">Help</div>
+            <div className="text-yellow-500 font-medium text-lg">Help</div>
             <div>About Us</div>
             <div>Our Blog</div>
             <div>How It Works</div>
           </div>
 
           <div className="grid gap-1">
-            <div className="text-primary font-medium text-lg">Transparency</div>
+            <div className="text-yellow-500 font-medium text-lg">Transparency</div>
             <div>Privacy Policy</div>
             <div>Security Policy</div>
             <div>Complaints</div>
@@ -51,10 +51,10 @@ const Footer = () => {
         </div>
 
         <div className="col-span-2 flex flex-col gap-2">
-          <div>Enter your email to get notified about new solutions</div>
+          <div className="text-sm">Enter your email to get notified about new solutions</div>
           <label className="input input-bordered flex justify-between items-center gap-2 w-full">
-            <input type="text" placeholder="Find vendor" className="rounded-md h-10 w-full" />
-            <button className="button-style bg-primary -mr-2 md:-mr-3">Subscribe</button>
+            <input type="text" placeholder="Email" className="rounded-md h-10 w-full" />
+            <button className="button-style bg-yellow-500 -mr-2 md:-mr-3">Subscribe</button>
           </label>
         </div>
 

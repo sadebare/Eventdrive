@@ -23,7 +23,7 @@ const PlannerConfirm = () => {
           <h1 className='font-bold text-3xl'>Check Your Email</h1>
           <p className='text-lg text-gray-400 px-8'>We have sent a verification code to your email</p>
         </div>
-        <button onClick={handleConfirm} className='place-self-center w-full md:w-2/5 bg-primary text-center text-xl mt-4 py-4 font-semibold rounded-lg'>Enter Code</button>
+        <button onClick={handleConfirm} className='place-self-center w-full md:w-2/5 bg-yellow-500 text-center text-xl mt-4 py-4 font-semibold rounded-lg'>Enter Code</button>
       </div>
       <div className="hidden lg:bg-[url('/auth.svg')] lg:bg-no-repeat lg:bg-cover lg:block lg:col-span-2 lg:w-full lg:min-h-screen lg:h-full"></div>
     </div>

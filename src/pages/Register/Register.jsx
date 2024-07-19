@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import google from "/google.svg";
 import PlannerRegister from "./PlannerRegister";
 import { LogoHeader, TabSwitcher } from "../../components";
-import PlannerVerify from "./PlannerVerify";
+import Verify from "../Verify";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { toggler } from "../../features/user/userSlice";
+import { Link } from "react-router-dom";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Name is required"),
@@ -35,12 +35,11 @@ const initialValues = {
 
 const VendorInfo = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleToggle = (event) => {
     event.preventDefault();
     dispatch(toggler());
-    navigate("/vendor-register");
+    window.open("/vendor-register", "_blank");
   };
 
   return (
@@ -56,7 +55,7 @@ const VendorInfo = () => {
       </ul>
       <button
         onClick={handleToggle}
-        className="bg-primary w-full text-center button-style my-7"
+        className="bg-yellow-500 w-full text-center button-style my-7"
       >
         Get Started
       </button>
@@ -67,12 +66,7 @@ const VendorInfo = () => {
 const Register = () => {
   const [activeTab, setActiveTab] = useState("Planner");
   const [isVerified, setIsVerified] = useState(false);
-  const dispatch = useDispatch();
   const { toggle } = useSelector((store) => store.user);
-
-  const handleToggle = () => {
-    dispatch(toggler());
-  };
 
   const handleSubmit = (values) => {
     // Handle form submission
@@ -81,7 +75,7 @@ const Register = () => {
   };
 
   if (isVerified) {
-    return <PlannerVerify />;
+    return <Verify />;
   }
 
   return (
@@ -97,7 +91,6 @@ const Register = () => {
                 Suspendisse laoreet non turpis in tempus.
               </p>
             </div>
-
             <TabSwitcher
               activeTab={activeTab}
               setActiveTab={setActiveTab}
@@ -121,23 +114,23 @@ const Register = () => {
             </div>
             {activeTab === "Planner" && (
               <>
-                <div className="flex items-center gap-2 py-2">
+                <div className="flex items-center gap-2 py-2 text-sm">
                   <Field
                     type="checkbox"
                     name="terms"
-                    className="checkbox checkbox-sm checkbox-primary"
+                    className="checkbox checkbox-xs [--chkbg:oklch(var(--a))] [--chkfg:white]"
                     required
                   />
                   <label
                     htmlFor="terms"
-                    className="text-primary text-sm font-semibold"
+                    className="text-yellow-500 text-sm font-semibold"
                   >
                     I accept terms and conditions & privacy policy
                   </label>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-primary text-center mt-4 py-2 font-semibold rounded-lg"
+                  className="w-full bg-yellow-500 text-center mt-4 py-2 font-semibold rounded-lg"
                 >
                   {activeTab === "Planner" ? "Sign Up" : "Register"}
                 </button>
@@ -154,12 +147,14 @@ const Register = () => {
             )}
           </Form>
         </Formik>
-        <div className="text-right py-4">
-          Registered User?{" "}
-          <a href="/login" className="text-primary">
-            Log In
-          </a>
-        </div>
+        {activeTab === "Planner" && (
+          <div className="text-center md:text-right -mt-4">
+            Registered User?{" "}
+            <Link to="/login" className="text-yellow-500">
+              Log In
+            </Link>
+          </div>
+        )}
       </div>
       <div className="hidden lg:bg-[url('/auth.svg')] lg:bg-no-repeat lg:bg-cover lg:block lg:col-span-2 lg:w-full lg:min-h-screen lg:h-full"></div>
     </div>

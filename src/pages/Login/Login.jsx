@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { FormFields, LogoHeader, TabSwitcher } from "../../components";
 import google from "/google.svg";
@@ -18,6 +18,7 @@ const initialValues = {
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState("Planner");
+  const [isVerified, setIsVerified] = useState(false);
 
   const handleLogin = (values) => {
     // Handle form submission
@@ -56,40 +57,56 @@ const Login = () => {
           setActiveTab={setActiveTab}
           tabs={["Planner", "Vendor"]}
         />
-
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={handleLogin}
         >
           <Form>
-            <FormFields fields={fields} />
+            <div className="grid gap-5">
+              <FormFields fields={fields} />
+            </div>
+            <div className="flex justify-between py-2 text-sm">
+              <div className="flex items-center gap-1">
+                <Field
+                  type="checkbox"
+                  name="remember"
+                  className="checkbox checkbox-xs [--chkbg:oklch(var(--a))] [--chkfg:white]"
+                />
+                <label
+                  htmlFor="remember"
+                  className="text-yellow-500 font-semibold"
+                >
+                  Remember Me
+                </label>
+              </div>
+              <div className="text-error">Forgot Password?</div>
+            </div>
             <button
               type="submit"
-              className="w-full bg-primary text-center mt-4 py-2 font-semibold rounded-lg"
+              className="w-full bg-yellow-500 text-center mt-4 py-2 font-semibold rounded-lg"
             >
               Log In
             </button>
+            <div className="flex py-6 items-center">
+              <hr className="flex-1 border-gray-300" />
+              <div className="mx-4 text-center font-semibold text-gray-500">
+                OR
+              </div>
+              <hr className="flex-1 border-gray-300" />
+            </div>
+
+            <div className="flex items-center justify-center gap-2 pt-2">
+              <img src={google} alt="google" />
+              <div>Login with Google</div>
+            </div>
           </Form>
         </Formik>
 
         <div className="-mt-4">
-          <div className="flex items-center">
-            <hr className="flex-1 border-gray-300" />
-            <div className="mx-4 text-center font-semibold text-gray-500">
-              OR
-            </div>
-            <hr className="flex-1 border-gray-300" />
-          </div>
-
-          <div className="flex items-center justify-center gap-2 pt-2">
-            <img src={google} alt="google" />
-            <div>Login with Google</div>
-          </div>
-
           <div className="text-center md:text-right py-2 md:font-semibold">
-            New User?{" "}
-            <a href="/register" className="text-primary">
+            {activeTab === "Planner" ? "New User" : "New Vendor"}?
+            <a href="/register" className="text-yellow-500 pl-2">
               Sign up
             </a>
           </div>

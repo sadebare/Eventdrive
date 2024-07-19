@@ -1,19 +1,23 @@
-import Error from "./Error";
-import HomeLayout from "./HomeLayout";
-import Landing from "./Landing";
-import SharedLayout from "./SharedLayout";
-import ProtectedRoute from "./ProtectedRoute";
-import Login from "./Login/Login";
-import Register from "./Register/Register";
-import VendorRegister from "./Register/VendorRegister";
+import { lazy } from "react";
+
+const Error = lazy(() => import("./Error"));
+const Landing = lazy(() => import("./Landing"));
+const SharedLayout = lazy(() => import("./SharedLayout"));
+const ProtectedRoute = lazy(() => import("./ProtectedRoute"));
+const Login = lazy(() => import("./Login/Login"));
+const Register = lazy(() => import("./Register/Register"));
+const VendorRegister = lazy(() => import("./Register/VendorRegister"));
+const Verify = lazy(() => import("./Verify"));
+const Venues = lazy(() => import("./Venues"));
 
 export {
   Error,
-  HomeLayout,
   Landing,
   SharedLayout,
   ProtectedRoute,
   Login,
   Register,
-  VendorRegister
+  VendorRegister,
+  Verify,
+  Venues
 };

@@ -1,22 +1,5 @@
-import * as Yup from "yup";
-import { Field, Form, Formik } from "formik";
+import React from "react";
 import { FormFields } from "../../components";
-
-const validationSchema = Yup.object({
-  businessName: Yup.string().required("Business Name is required"),
-  businessEmail: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
-  phone: Yup.string().required("Phone number is required"),
-  // ...
-});
-
-const initialValues = {
-  businessName: "",
-  businessEmail: "",
-  phone: "",
-  // ...
-};
 
 const BusinessDetails = () => {
   const fields = [
@@ -33,48 +16,94 @@ const BusinessDetails = () => {
       placeholder: "Your Business Email",
     },
     {
-      name: "phone",
+      name: "businessPhone",
       label: "Phone Number",
       type: "tel",
       placeholder: "Phone Number",
-    }
-    // ...
+    },
+    {
+      name: "service",
+      label: "What Service Are You Interested in?",
+      type: "radio",
+      options: [
+        { label: "Register as a vendor", value: "vendor" },
+        { label: "Register as a venue owner", value: "owner" },
+      ],
+    },
+    {
+      name: "businessType",
+      label: "Business Type",
+      type: "select",
+      options: [
+        { label: "Photography", value: "photography" },
+        { label: "Catering", value: "catering" },
+        { label: "Interior Decoration", value: "interiorDecoration" },
+        { label: "MC", value: "mc" },
+        { label: "Event Planner", value: "eventPlanner" },
+      ],
+    },
+    {
+      name: "country",
+      label: "Country",
+      type: "select",
+      options: [
+        { label: "USA", value: "usa" },
+        { label: "Canada", value: "canada" },
+        // Add more countries as needed
+      ],
+    },
+    {
+      name: "state",
+      label: "State/Province",
+      type: "select",
+      options: [
+        { label: "California", value: "ca" },
+        { label: "New York", value: "ny" },
+        // Add more states/provinces as needed
+      ],
+    },
+    {
+      name: "localGovernment",
+      label: "LGA",
+      type: "select",
+      options: [
+        { label: "District 1", value: "district1" },
+        { label: "District 2", value: "district2" },
+        // Add more local governments as needed
+      ],
+    },
+    {
+      name: "city",
+      label: "City",
+      type: "text",
+      placeholder: "City",
+    },
+    {
+      name: "zipCode",
+      label: "ZIP Code",
+      type: "text",
+      placeholder: "ZIP Code",
+    },
+    {
+      name: "streetAddress",
+      label: "Street Address",
+      type: "text",
+      placeholder: "Street Address",
+    },
   ];
 
-  const handleSubmit = (values) => {
-    // Handle form submission
-    console.log(values);
-  };
-
   return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold">Business Information</h1>
-      <p className="text-gray-500">
-        Etiam accumsan lorem leo, non aliquet ipsum mattis non. Suspendisse
-        laoreet non turpis in tempus.
-      </p>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form>
-          <div className="grid md:grid-cols-2 gap-5">
-            <FormFields fields={fields} />
-            <Field 
-              type="radio"
-              name="service"
-              className="w-3 checked:bg-primary"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-fit bg-primary mt-4 px-4 py-2 font-semibold rounded-lg"
-          >
-            Save & Continue
-          </button>
-        </Form>
-      </Formik>
+    <div className="grid gap-5">
+      <FormFields fields={fields.filter(field => field.name === "businessName" || field.name === "businessEmail" || field.name === "businessPhone" || field.name === "service" || field.name === "businessType")} />
+      <div className="grid grid-cols-2 gap-5">
+        <FormFields fields={fields.filter(field => field.name === "country" || field.name === "state")} />
+      </div>
+      <div className="grid grid-cols-3 gap-5">
+        <FormFields fields={fields.filter(field => field.name === "localGovernment" || field.name === "city" || field.name === "zipCode")} />
+      </div>
+      <div>
+        <FormFields fields={fields.filter(field => field.name === "streetAddress")} />
+      </div>
     </div>
   );
 };
