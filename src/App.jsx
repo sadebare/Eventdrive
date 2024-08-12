@@ -13,6 +13,7 @@ import {
   Events,
   Vendors,
   Vendor,
+  Cart,
 } from "./pages";
 import { Loading } from "./components";
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/events/:eventId" element={<Events />} />
             <Route path="/vendors" element={<Vendors />} />
             <Route path="/vendor/:vendorId" element={<Vendor />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
           <Route path="*" element={<Error />} />
         </Routes>

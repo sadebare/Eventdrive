@@ -7,9 +7,9 @@ const Hero = ({ link, title, subText, firstInput, secondInput }) => {
       style={{ backgroundImage: `url(${link})` }}
     >
       <article className="text-center lg:mx-36">
-        <h1 className="text-base-100 font-bold text-5xl">{title}</h1>
-        <p className="my-7 text-xl md:text-2xl text-yellow-500">{subText}</p>
-        <div className="flex flex-col md:flex-row justify-center gap-4">
+        <h1 className="text-base-100 font-bold text-3xl md:text-5xl">{title}</h1>
+        <p className="my-7 text-lg md:text-2xl text-yellow-500">{subText}</p>
+        <div className="flex flex-col md:flex-row justify-center gap-4 text-sm md:text-base">
           <label className="input input-bordered flex justify-between items-center gap-2 w-full">
             <input
               type="text"

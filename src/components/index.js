@@ -4,7 +4,6 @@ import MobileFilters from './MobileFilters';
 import Navbar from './Navbar';
 import NavLinks from './NavLinks';
 import SectionTitle from './SectionTitle';
-import SearchContainer from './SearchContainer';
 // import LinkItems from './LinkItems';
 import Loading from './Loading';
 import Logos from './Logos';
@@ -46,14 +45,13 @@ import Categories from './Categories';
 import Modal from './Modal';
 
 import Calendar from './Calendar';
-import Cart from './Cart';
 
 export { 
-  ErrorElement, Filters, MobileFilters, Loading, Navbar, NavLinks, SectionTitle, SearchContainer, Logos, 
+  ErrorElement, Filters, MobileFilters, Loading, Navbar, NavLinks, SectionTitle, Logos, 
   SecondSection, ThirdSection, FourthSection, Popular, Similar, VenueCall,
   VendorList, VendorOverview, VendorBooking, CompanyProfile, Specialitites, Packages, VendorGallery,
   EventOverview, EventImage, EventBooking, About, Amenities, Reviews, EventGallery,
   DescItem, Footer, LogoHeader, TabSwitcher, FormFields, CustomRadio, CircularProgress, Hero, PageNav, 
   Categories, VenueList,
-  Calendar, Modal, Cart
+  Calendar, Modal
 }

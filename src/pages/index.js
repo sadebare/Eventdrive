@@ -12,6 +12,7 @@ const Venues = lazy(() => import("./Venues"));
 const Events = lazy(() => import("./Events"));
 const Vendors = lazy(() => import("./Vendors"));
 const Vendor = lazy(() => import("./Vendor"));
+const Cart = lazy(() => import("./Cart"));
 
 export {
   Error,
@@ -25,5 +26,6 @@ export {
   Venues,
   Events,
   Vendors,
-  Vendor
+  Vendor,
+  Cart
 };

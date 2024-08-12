@@ -1,13 +1,18 @@
 import { useState } from "react";
 import LinkItems from "./LinkItems";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const NavLinks = () => {
   const [activeLinkId, setActiveLinkId] = useState(null);
   const links = useSelector((store) => store.user.links);
+  const navigate = useNavigate();
 
   const handleClick = (id) => {
-    if (id === 4) {
+    console.log("Checking", id);
+    if (id === 1) {
+      navigate('/');
+    } else if (id === 4) {
       setActiveLinkId(null);
       document
         .getElementById("how")

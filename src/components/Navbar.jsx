@@ -50,13 +50,13 @@ const Navbar = () => {
                     className="hover:bg-gray-200 border border-black rounded-full p-3"
                   />
                 </div>
-                <div>
+                <Link to='/cart'>
                   <img
                     src="/cart.svg"
                     alt="cart"
                     className="hover:bg-gray-200 border border-black rounded-full p-3"
                   />
-                </div>
+                </Link>
               </>
             ) : (
               <>

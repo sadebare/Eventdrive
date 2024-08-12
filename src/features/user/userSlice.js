@@ -9,9 +9,9 @@ const initialState = {
   isLoading: false,
   toggle: false,
   links: [
-    { id: uuidv4(), page: "Home" },
+    { id: 1, page: "Home" },
     {
-      id: uuidv4(),
+      id: 2,
       page: "Venues",
       details: {
         titles: ["By Location", "By Venue Type", "By Event"],
@@ -31,7 +31,7 @@ const initialState = {
       },
     },
     {
-      id: uuidv4(),
+      id: 3,
       page: "Vendors",
       details: {
         titles: ["By Sound", "By Hospitality", "By Event Coverage", "By Makeup"],
@@ -45,8 +45,8 @@ const initialState = {
         makeups: ["Bridal Makeup", "Full Body Makeup", "Hair Styling"],
       },
     },
-    { id: uuidv4(), page: "How it Works" },
-    { id: uuidv4(), page: "Blog" },
+    { id: 4, page: "How it Works" },
+    { id: 5, page: "Blog" },
   ],
   user: getUserFromLocalStorage(),
   theme: getThemeFromLocalStorage(),
