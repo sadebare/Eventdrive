@@ -2,7 +2,7 @@ const DescItem = ({ title, icon, sub, subText, cont, name, role, remark }) => {
   return (
     <div
       className={`${
-        cont ? "shadow-lg border-gray-50 w-full rounded-3xl gap-1 mb-10" : ""
+        cont ? "shadow-lg border-gray-50 w-full rounded-3xl gap-1 mb-10" : "-mt-12 mb-5 md:mt-0"
       } grid p-3 h-80 md:h-full mx-3`}
     >
       <div className={`${sub && 'md:h-56'}`}>
