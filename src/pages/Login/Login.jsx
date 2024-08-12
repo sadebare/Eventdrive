@@ -18,7 +18,6 @@ const initialValues = {
 
 const Login = () => {
   const [activeTab, setActiveTab] = useState("Planner");
-  const [isVerified, setIsVerified] = useState(false);
 
   const handleLogin = (values) => {
     // Handle form submission

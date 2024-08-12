@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import NavLinks from "./NavLinks";
-import logo from "/logo.svg";
 import { FaTimes } from "react-icons/fa";
 import { VscThreeBars } from "react-icons/vsc";
 import { Link } from "react-router-dom";
@@ -26,7 +25,9 @@ const Navbar = () => {
   return (
     <div className="bg-base-100">
       {/* Desktop */}
-      <Link to='/vendor-register' className="bg-gray-100 text-yellow-500 text-center py-2 block md:font-semibold">List Your Business</Link>
+      <div className="flex justify-center bg-gray-100 text-yellow-500">
+        <Link to='/vendor-register' className="py-2 md:font-semibold hover:underline ">List Your Business</Link>
+      </div>
       <div className="align-element py-6 hidden lg:block">
         <div className="flex items-center justify-between">
           <LogoHeader />

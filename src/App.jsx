@@ -10,6 +10,9 @@ import {
   VendorRegister,
   Verify,
   Venues,
+  Events,
+  Vendors,
+  Vendor,
 } from "./pages";
 import { Loading } from "./components";
 
@@ -31,7 +34,10 @@ function App() {
             }
           >
             <Route index element={<Landing />} />
-            <Route path="/venues" element={<Venues />} />
+            <Route path="/venues/:state" element={<Venues />} />
+            <Route path="/events/:eventId" element={<Events />} />
+            <Route path="/vendors" element={<Vendors />} />
+            <Route path="/vendor/:vendorId" element={<Vendor />} />
           </Route>
           <Route path="*" element={<Error />} />
         </Routes>

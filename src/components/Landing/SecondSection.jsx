@@ -3,7 +3,7 @@ import SectionTitle from "../SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { FreeMode, Pagination } from "swiper/modules";
 
 const SecondSection = () => {
   const description = [
@@ -93,13 +93,12 @@ const SecondSection = () => {
     <div className="align-element my-10 animate-fade-left">
       <SectionTitle text="Popular Vendors/Venues" />
       <Swiper
-        modules={[Pagination]}
-        spaceBetween={30}
-        loop={true}
+        modules={[FreeMode, Pagination]}
+        spaceBetween={10}
+        freeMode={true}
         pagination={{ clickable: true }}
         slidesPerView={3}
         grabCursor={true}
-        centeredSlides={true}
         breakpoints={{
           0: {
             slidesPerView: 1,
@@ -111,10 +110,10 @@ const SecondSection = () => {
             slidesPerView: 3,
           },
         }}
-        className="preview"
+        className=""
       >
         {description.map((item, index) => (
-          <SwiperSlide key={index} className="mb-3">
+          <SwiperSlide key={index} className="mb-10">
             <DescItem {...item} />
           </SwiperSlide>
         ))}

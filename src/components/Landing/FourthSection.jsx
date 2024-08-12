@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-const FourthSection = () => {
+const FourthSection = ({ view }) => {
   const description = [
     {
       name: "Silvia Adeleke",
@@ -41,7 +41,7 @@ const FourthSection = () => {
 
   return (
     <section className="align-element py-8">
-      <SectionTitle text="What Event Planners are Saying" />
+      <SectionTitle text="What Event Planners are Saying" view={view} />
       <Swiper
         modules={[Pagination]}
         spaceBetween={30}
@@ -61,10 +61,10 @@ const FourthSection = () => {
             slidesPerView: 3,
           },
         }}
-        className="preview"
+        className=""
       >
         {description.map((item, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className={`${view ? '-mt-20 mb-28 md:mb-0' : 'mb-10'}`}>
             <DescItem {...item} />
           </SwiperSlide>
         ))}

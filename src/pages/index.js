@@ -9,6 +9,9 @@ const Register = lazy(() => import("./Register/Register"));
 const VendorRegister = lazy(() => import("./Register/VendorRegister"));
 const Verify = lazy(() => import("./Verify"));
 const Venues = lazy(() => import("./Venues"));
+const Events = lazy(() => import("./Events"));
+const Vendors = lazy(() => import("./Vendors"));
+const Vendor = lazy(() => import("./Vendor"));
 
 export {
   Error,
@@ -19,5 +22,8 @@ export {
   Register,
   VendorRegister,
   Verify,
-  Venues
+  Venues,
+  Events,
+  Vendors,
+  Vendor
 };

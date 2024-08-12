@@ -1,4 +1,4 @@
-const TabSwitcher = ({ activeTab, setActiveTab, tabs }) => {
+const TabSwitcher = ({ activeTab, setActiveTab, tabs, widen }) => {
   return (
     <div className="flex font-semibold border-b-4 border-b-yellow-500">
       {tabs.map((tab) => (
@@ -6,7 +6,7 @@ const TabSwitcher = ({ activeTab, setActiveTab, tabs }) => {
           key={tab}
           className={`px-3 py-1 rounded-t-xl ${
             activeTab === tab ? "bg-yellow-500" : ""
-          } cursor-pointer`}
+          } ${widen && 'flex-1 text-center'} cursor-pointer`}
           onClick={() => setActiveTab(tab)}
         >
           {tab}

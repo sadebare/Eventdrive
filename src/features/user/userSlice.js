@@ -3,12 +3,53 @@ import { getThemeFromLocalStorage } from "../../utils/theme";
 import { clearStoreThunk, loginUserThunk, registerUserThunk, updateUserThunk } from "./userThunk";
 import { getUserFromLocalStorage, removeUserFromLocalStorage } from "../../utils/localStorage";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
   isLoading: false,
   toggle: false,
+  links: [
+    { id: uuidv4(), page: "Home" },
+    {
+      id: uuidv4(),
+      page: "Venues",
+      details: {
+        titles: ["By Location", "By Venue Type", "By Event"],
+        states: [
+          "abia", "adamawa", "akwa Ibom", "anambra", "bauchi", "bayelsa", "benue", "borno", "cross River", "delta",
+          "ebonyi", "edo", "ekiti", "enugu", "fCT - Abuja", "gombe", "imo", "jigawa", "kaduna", "kano", "katsina",
+          "kebbi", "kogi", "kwara", "lagos", "nasarawa", "niger", "ogun", "ondo", "osun", "oyo", "plateau", "rivers",
+          "sokoto", "taraba", "yobe", "zamfara"
+        ],
+        venues: ["Hotels", "Restaurants", "Conference Halls", "Bar"],
+        events: [
+          "Wedding Venues",
+          "Wedding Reception",
+          "Birthday Venues",
+          "Corporate Events Venues",
+        ],
+      },
+    },
+    {
+      id: uuidv4(),
+      page: "Vendors",
+      details: {
+        titles: ["By Sound", "By Hospitality", "By Event Coverage", "By Makeup"],
+        sounds: ["Equipment Rentals", "Mixology", "DJ"],
+        hospitalities: [
+          "Small Event Catering",
+          "Large Event Catering",
+          "Decoration",
+        ],
+        coverages: ["MC", "Photography", "Cinematography"],
+        makeups: ["Bridal Makeup", "Full Body Makeup", "Hair Styling"],
+      },
+    },
+    { id: uuidv4(), page: "How it Works" },
+    { id: uuidv4(), page: "Blog" },
+  ],
   user: getUserFromLocalStorage(),
-  theme: getThemeFromLocalStorage()
+  theme: getThemeFromLocalStorage(),
 };
 
 export const registerUser = createAsyncThunk(

@@ -26,24 +26,8 @@
   animation: zoomOut 0.4s backwards;
 }
 
-.swiper {
-  margin: 1px auto;
-  width: 320px;
-  height: 240px;
-}
-
 .swiper .swiper-pagination-bullet-active {
   background: #EAB308;
-}
-
-.swiper-slide {
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
 }
 
 @keyframes slideUp {
@@ -86,6 +70,6 @@
   }
 
   .button-style {
-    @apply py-2 px-4 rounded-md font-bold;
+    @apply py-2 px-4 rounded-md font-bold cursor-pointer;
   }
 }
