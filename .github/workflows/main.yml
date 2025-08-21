@@ -54,3 +54,8 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
+
+      - name: Post Deploy URL to Job Summary
+        run: |
+          echo "### ✅ Netlify Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "**Live Site URL:** ${{ fromJson(steps.netlify_deploy.outputs.details).deploy_url }}" >> $GITHUB_STEP_SUMMARY
