@@ -9,6 +9,10 @@ terraform {
       source  = "hashicorp/random"
       version = "3.4.3"
     }
+    github {
+      token = var.github_token
+      owner = "Sadebare"
+    }
   }
 
   cloud {
@@ -22,6 +26,14 @@ terraform {
 # 2. Configure the Netlify provider (no change here)
 provider "netlify" {
     token = var.NETLIFY_AUTH_TOKEN
+}
+
+# Register Netlify’s public key in GitHub
+resource "github_repository_deploy_key" "netlify" {
+  repository = "Terraform-Netlify-Deploy"
+  title      = "netlify-deploy-key"
+  key        = netlify_deploy_key.challenge_key.public_key
+  read_only  = true # set to false if Netlify ever needs push access
 }
 
 # 3. Use the Random provider for a unique name (no change here)
