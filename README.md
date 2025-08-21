@@ -95,7 +95,7 @@ This project demonstrates how to deploy a static frontend site to Netlify using 
 
 ## Live Site
 
-- [Your Netlify Site](https://your-site-name.netlify.app)
+- [Netlify Site][(https://your-site-name.netlify.app](https://tf-challenge-trusty-goldfish.netlify.app/))
 
 ## Screenshot
 
