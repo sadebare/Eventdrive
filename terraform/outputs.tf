@@ -3,7 +3,7 @@
 output "site_url" {
   description = "The live URL of the deployed Netlify site."
   # This attribute 'url' exists and is the correct one to use for the live site.
-  value       = netlify_site.challenge_site.name 
+  value       = "https://${netlify_site.challenge_site.name}.netlify.app"
 }
 
 output "site_admin_url" {
