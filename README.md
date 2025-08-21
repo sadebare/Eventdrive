@@ -95,8 +95,10 @@ This project demonstrates how to deploy a static frontend site to Netlify using 
 
 ## Live Site
 
-- [Netlify Site][(https://your-site-name.netlify.app](https://tf-challenge-trusty-goldfish.netlify.app/))
+- [Netlify Site][(https://tf-challenge-trusty-goldfish.netlify.app/](https://tf-challenge-trusty-goldfish.netlify.app/))
 
 ## Screenshot
+![image 1](./images/terraform-apply.png)
+![image 2](./images/netlify.png)
+![image 3](./images/live%20app.png)
 
-Include a screenshot of a successful `terraform apply` showing the live URL.
