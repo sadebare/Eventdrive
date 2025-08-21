@@ -15,3 +15,9 @@ variable "NETLIFY_AUTH_TOKEN" {
   type        = string
   sensitive   = true
 }
+
+variable "github_token" {
+  description = "Your GitHub personal access token"
+  type        = string
+  sensitive   = true
+}
