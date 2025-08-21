@@ -62,7 +62,7 @@ resource "netlify_site" "challenge_site" {
     repo_path     = var.github_repo_path
     command = "npm run build"
     dir = "dist"
-    deploy_key_id = netlify_deploy_key.challenge_key.id
+    #deploy_key_id = netlify_deploy_key.challenge_key.id
   }
   
 }
