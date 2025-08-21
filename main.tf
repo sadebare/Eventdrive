@@ -9,7 +9,7 @@ terraform {
       source  = "hashicorp/random"
       version = "3.4.3"
     }
-    github {
+    github = {
       token = var.github_token
       owner = "Sadebare"
     }
