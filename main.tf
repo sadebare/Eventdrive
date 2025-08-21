@@ -36,7 +36,7 @@ provider "github" {
 
 # Register Netlify’s public key in GitHub
 resource "github_repository_deploy_key" "netlify" {
-  repository = "Terraform-Netlify-Deploy"
+  repository = "Eventdrive"
   title      = "netlify-deploy-key"
   key        = netlify_deploy_key.challenge_key.public_key
   read_only  = true # set to false if Netlify ever needs push access
