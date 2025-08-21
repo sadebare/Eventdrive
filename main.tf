@@ -29,7 +29,11 @@ resource "random_pet" "site_suffix" {
   length = 2
 }
 
-# 4. Define the Netlify Site resource with build settings
+# 4. Create a deploy key that Netlify can use to access your private repo.
+# Terraform will handle the generation of the public/private key pair.
+resource "netlify_deploy_key" "challenge_key" {}
+
+# 5. Define the Netlify Site resource with build settings
 resource "netlify_site" "challenge_site" {
   name = "${var.site_name_prefix}-${random_pet.site_suffix.id}"
 
@@ -40,6 +44,7 @@ resource "netlify_site" "challenge_site" {
     repo_path     = var.github_repo_path
     command = "npm run build"
     dir = "dist"
+    deploy_key_id = netlify_deploy_key.challenge_key.id
   }
   
 }
