@@ -24,15 +24,14 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init ./terraform
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var="github_repo_path=${{ github.repository }}"
+        run: terraform apply -auto-approve -var="github_repo_path=${{ github.repository }}" ./terraform
 
       - name: Get Netlify Site ID
         id: get_site_id
         run: |
-          # The fix is here: pipe to tail to remove debug output
           SITE_ID=$(terraform output -raw site_id | tail -n 1)
           echo "NETLIFY_SITE_ID=$SITE_ID" >> $GITHUB_ENV
 
@@ -54,5 +53,3 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
-
-     
