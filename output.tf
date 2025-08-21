@@ -11,3 +11,9 @@ output "site_admin_url" {
   # We are constructing this URL manually using the site's name, which IS an available attribute.
   value       = "https://app.netlify.com/sites/${netlify_site.challenge_site.name}/overview"
 }
+
+output "site_id" {
+  description = "The unique identifier for the Netlify site."
+  # The 'id' attribute is available and provides the unique identifier for the site.
+  value       = netlify_site.challenge_site.id
+}
