@@ -9,9 +9,9 @@ terraform {
       source  = "hashicorp/random"
       version = "3.4.3"
     }
+
     github = {
-      token = var.github_token
-      owner = "Sadebare"
+      source  = "integrations/github"
     }
   }
 
@@ -26,6 +26,12 @@ terraform {
 # 2. Configure the Netlify provider (no change here)
 provider "netlify" {
     token = var.NETLIFY_AUTH_TOKEN
+}
+
+# Configure the GitHub Provider
+provider "github" {
+    token = var.github_token
+    owner = "Sadebare"
 }
 
 # Register Netlify’s public key in GitHub
